@@ -77,15 +77,8 @@ public class ImageControllerTest {
         command.setId(1L);
 
         String s = "fake image text";
-        Byte[] bytesBoxed = new Byte[s.getBytes().length];
 
-        int i = 0;
-
-        for (byte primByte : s.getBytes()){
-            bytesBoxed[i++] = primByte;
-        }
-
-        command.setImage(bytesBoxed);
+        command.setImage(s.getBytes());
 
         when(recipeService.findCommandById(anyLong())).thenReturn(command);
 
